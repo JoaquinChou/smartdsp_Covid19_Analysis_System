@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="background">
+    <file>second_edition.png</file>
+    <file>first_edition.jpg</file>
+    <file>logo1.png</file>
+  </qresource>
+</RCC>

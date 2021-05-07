@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "D:\\Anaconda\\envs\\pytorch\\python.exe",
+    "python.linting.pylintPath": "D:\\Anaconda\\envs\\pytorch\\Scripts\\pylint.exe",
+    "python.formatting.provider": "yapf"
+}
