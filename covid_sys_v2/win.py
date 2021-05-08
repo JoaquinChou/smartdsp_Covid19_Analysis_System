@@ -118,14 +118,11 @@ class Ui_smartdsp(object):
         self.menubar.addAction(self.menu.menuAction())
         self.menubar.addAction(self.menu_2.menuAction())
 
-        self.label_2.setStyleSheet(
-            'background-color: rgb(74, 74, 74)')  ##############
+        self.label_2.setStyleSheet('background-color: black')  ##############
 
-        self.label_5.setStyleSheet(
-            'background-color:rgb(74, 74, 74)')  ##############
+        self.label_5.setStyleSheet('background-color:black')  ##############
 
-        self.label_6.setStyleSheet(
-            'background-color: rgb(74, 74, 74)')  ##############
+        self.label_6.setStyleSheet('background-color: black')  ##############
 
         # 设置状态栏样式
         self.menu.setStyleSheet("color:white")
@@ -149,7 +146,7 @@ class Ui_smartdsp(object):
         # 打开图像控件
         self.pushButton.setStyleSheet(
             "QPushButton:hover{color:red}"
-            "QPushButton{background-color:black}"
+            "QPushButton{background-color:rgb(80,80,80)}"
             "QPushButton{color:white}"
             "QPushButton{border:2px}"
             "QPushButton{border-radius:2px}"  ##10
@@ -160,7 +157,7 @@ class Ui_smartdsp(object):
         self.pushButton_2.setStyleSheet(
             "QPushButton{color:white}"
             "QPushButton:hover{color:red}"
-            "QPushButton{background-color:black}"
+            "QPushButton{background-color:rgb(80,80,80)}"
             "QPushButton{border:2px}"
             "QPushButton{border-radius:2px}"  ##10
             "QPushButton{padding:2px 4px}"
@@ -170,7 +167,7 @@ class Ui_smartdsp(object):
         self.pushButton_3.setStyleSheet(
             "QPushButton{color:white}"
             "QPushButton:hover{color:red}"
-            "QPushButton{background-color:black}"
+            "QPushButton{background-color:rgb(80,80,80)}"
             "QPushButton{border:2px}"
             "QPushButton{border-radius:2px}"  ##10
             "QPushButton{padding:2px 4px}"
@@ -183,7 +180,7 @@ class Ui_smartdsp(object):
         self.pushButton_4.setStyleSheet(
             "QPushButton{color:white}"
             "QPushButton:hover{color:red}"
-            "QPushButton{background-color:black}"
+            "QPushButton{background-color:rgb(80,80,80)}"
             "QPushButton{border:2px}"
             "QPushButton{border-radius:2px}"  ##10
             "QPushButton{padding:2px 4px}"
@@ -196,7 +193,7 @@ class Ui_smartdsp(object):
         self.pushButton_5.setStyleSheet(
             "QPushButton{color:white}"
             "QPushButton:hover{color:red}"
-            "QPushButton{background-color:black}"
+            "QPushButton{background-color:rgb(80,80,80)}"
             "QPushButton{border:2px}"
             "QPushButton{border-radius:2px}"  ##10
             "QPushButton{padding:2px 4px}"
@@ -205,9 +202,9 @@ class Ui_smartdsp(object):
             # "QPushButton:hover{border-image: url(img/open.png)}"
         )  #####
         self.pushButton_8.setStyleSheet(
-            "QPushButton{color:black}"
+            "QPushButton{color:white}"
             "QPushButton:hover{color:red}"
-            # "QPushButton{background-color:lightgreen}"
+            "QPushButton{background-color:rgb(80,80,80)}"
             "QPushButton{border:2px}"
             "QPushButton{border-radius:2px}"  ##10
             "QPushButton{padding:2px 4px}"
@@ -216,9 +213,9 @@ class Ui_smartdsp(object):
             # "QPushButton:hover{border-image: url(img/open.png)}"
         )  #####
         self.pushButton_9.setStyleSheet(
-            "QPushButton{color:black}"
+            "QPushButton{color:white}"
             "QPushButton:hover{color:red}"
-            # "QPushButton{background-color:lightgreen}"
+            "QPushButton{background-color:rgb(80,80,80)}"
             "QPushButton{border:2px}"
             "QPushButton{border-radius:2px}"  ##10
             "QPushButton{padding:2px 4px}"
@@ -227,7 +224,7 @@ class Ui_smartdsp(object):
             # "QPushButton:hover{border-image: url(img/open.png)}"
         )  #####
 
-        self.lineEdit.setStyleSheet("color:red;background:black;")  ##
+        self.lineEdit.setStyleSheet("color:red;background:rgb(80,80,80);")  ##
         font = QtGui.QFont()  ###
         font.setFamily('微软雅黑')  ##
         font.setBold(True)  ##
@@ -249,7 +246,9 @@ class Ui_smartdsp(object):
         self.pushButton.setText(_translate("smartdsp", "\n\n\n\n打开图像"))
         self.pushButton_2.setText(_translate("smartdsp", "\n\n\n\n诊断预测"))
         self.pushButton_8.setText(_translate("smartdsp", ""))
+        self.pushButton_8.raise_()
         self.pushButton_9.setText(_translate("smartdsp", ""))
+        self.pushButton_9.raise_()
         self.menu.setTitle(_translate("smartdsp", "模态选择"))
         self.actionCT.setText(_translate("smartdsp", "CT"))
         self.actionCXR.setText(_translate("smartdsp", "CXR"))
@@ -375,6 +374,8 @@ class Ui_smartdsp(object):
                         './save/' + self.curimg.split('.')[0] + '.jpg')
 
     def origjpg(self):
+        if not "imgName" in dir(self):
+            return
         jpg1 = QtGui.QPixmap(self.imgName).scaled(self.label_2.width(),
                                                   self.label_2.height())
         self.label_2.setPixmap(jpg1)

@@ -10,7 +10,7 @@ class Ui_Launch_Window(QWidget):
     def __init__(self):
         super().__init__()
         self.resize(900, 600)
-        self.setWindowTitle('COVID-19 Analysis System')
+        self.setWindowTitle('Smartdsp COVID-19 Analysis System')
         self.setWindowIcon(QIcon('./config_images/logo1.png'))
         self.pushButton = QtWidgets.QPushButton(self)
         self.pushButton.setGeometry(QtCore.QRect(425, 510, 85, 40))

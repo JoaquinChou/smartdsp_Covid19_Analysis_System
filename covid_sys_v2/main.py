@@ -21,9 +21,9 @@ if __name__ == '__main__':
     MainWindow = QMainWindow()
     ui = win.Ui_smartdsp()
     ui.setupUi(MainWindow)
-    MainWindow.setWindowTitle('COVID-19 Analysis System')
+    MainWindow.setWindowTitle('Smartdsp COVID-19 Analysis System')
     MainWindow.setWindowIcon(QIcon('./config_images/logo1.png'))
-    MainWindow.setStyleSheet('background-color: black')
+    MainWindow.setStyleSheet('background-color: rgb(80,80,80)')
 
     launchWindows.setFixedSize(900, 600)
     MainWindow.setFixedSize(800, 550)
