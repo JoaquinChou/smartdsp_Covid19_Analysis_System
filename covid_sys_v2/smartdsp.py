@@ -101,3 +101,4 @@ class Ui_smartdsp(object):
         self.actionCT.setText(_translate("smartdsp", "CT"))
         self.actionCXR.setText(_translate("smartdsp", "CXR"))
         self.action.setText(_translate("smartdsp", "联系我们"))
+    

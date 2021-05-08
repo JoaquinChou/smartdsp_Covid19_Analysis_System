@@ -12,6 +12,7 @@ from PyQt5.QtGui import QCursor
 from resnet_v2 import *
 from cam import *
 import os
+from dialogs import connect_us_dialog
 
 
 class Ui_smartdsp(object):
@@ -83,6 +84,8 @@ class Ui_smartdsp(object):
         self.label_6.setObjectName("label_6")
 
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        # 设置不可编辑
+        self.lineEdit.setFocusPolicy(QtCore.Qt.NoFocus)
         self.lineEdit.setGeometry(QtCore.QRect(290, 470, 481, 31))
         self.lineEdit.setObjectName("lineEdit")
         smartdsp.setCentralWidget(self.centralwidget)
@@ -134,11 +137,14 @@ class Ui_smartdsp(object):
         self.retranslateUi(smartdsp)
         QtCore.QMetaObject.connectSlotsByName(smartdsp)
 
+        # 设置状态栏点击事件
         self.actionCT.triggered.connect(
             self.processct)  ############################
         self.actionCXR.triggered.connect(
             self.processcxr)  ############################
         self.mode = 0  ################################################
+
+        self.action.triggered.connect(connect_us_dialog)
 
         # 打开图像控件
         self.pushButton.setStyleSheet(
@@ -279,6 +285,8 @@ class Ui_smartdsp(object):
         self.label_2.setPixmap(jpg1)
 
     def predict(self):
+        if not "imgName" in dir(self):
+            return
         import shutil
 
         root_path = os.getcwd()
@@ -320,6 +328,8 @@ class Ui_smartdsp(object):
         # os.remove("./temp/0/"+str(self.imgName).split('/')[-1])
 
     def previous(self):
+        if not "imgpath" in dir(self):
+            return
         files = os.listdir(self.imgpath)
         print(files)
         self.img = self.imgName.split('/')[-1]
@@ -337,6 +347,8 @@ class Ui_smartdsp(object):
             self.label_2.setPixmap(jpg1)
 
     def nextpic(self):
+        if not "imgpath" in dir(self):
+            return
         files = os.listdir(self.imgpath)
         self.img = self.imgName.split('/')[-1]
         id = files.index(self.img)
@@ -355,6 +367,8 @@ class Ui_smartdsp(object):
         import shutil
         root_path = os.getcwd()
         root_path += '/save/'
+        if not "curimg" in dir(self):
+            return
         if os.path.exists(root_path) == False:
             os.makedirs(root_path)
         shutil.copyfile("./cam.jpg",
